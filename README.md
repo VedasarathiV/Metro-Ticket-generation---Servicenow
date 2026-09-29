@@ -1,8 +1,3 @@
-Here is a comprehensive, production-ready `README.md` structured for your ServiceNow project.
-
-Copy and paste the code block below directly into your repository's `README.md` file:
-
-```markdown
 # 🚇 Metro Ticket Generation System in ServiceNow
 
 [![ServiceNow](https://img.shields.io/badge/Platform-ServiceNow-green.svg)](https://www.servicenow.com/)
@@ -10,24 +5,32 @@ Copy and paste the code block below directly into your repository's `README.md` 
 
 A digital metro ticketing and automated workflow system built on the **ServiceNow Platform**. This solution replaces manual booking with a self-service digital workflow, automated fare calculation logic, dynamic QR ticket generation, and role-based access control.
 
+
+<p align="center">
+  <img src="Workflows/Workflow%20-%201.png" alt="Workflow 1" width="48%" />
+  <img src="Workflows/Workflow%20-%202.png" alt="Workflow 2" width="48%" />
+</p>
+
+
 ---
 
 ## 📌 Table of Contents
 - [Project Overview](#-project-overview)
 - [Key Features](#-key-features)
 - [System Architecture & Workflow](#-system-architecture--workflow)
+- [Project Visuals](#-project-visuals)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Implementation & Configuration](#-implementation--configuration)
 - [Troubleshooting & Challenges Solved](#-troubleshooting--challenges-solved)
 - [Future Scope](#-future-scope)
-- [Author & Acknowledgments](#-author--acknowledgments)
+- [Author](#-author)
 
 ---
 
 ## 📌 Project Overview
 
-The **Metro Ticket Generation System** streamlines public transit ticketholding by leveraging ServiceNow’s low-code workflow automation capabilities. Passengers can request digital tickets via the Service Portal, receive instant fare quotes, and get a scannable QR ticket upon approval and processing.
+The **Metro Ticket Generation System** streamlines public transit ticketing by leveraging ServiceNow’s low-code workflow automation capabilities. Passengers can request digital tickets via the Service Portal, receive instant fare quotes, and get a scannable QR ticket upon approval and processing.
 
 ---
 
@@ -62,33 +65,16 @@ QR Code Generation (Service Portal Widget via spModal)
        ▼
 Station Verification & Status Tracking
 
-```
+🖼️ Project Visuals
+⚙️ Tech Stack
+Platform: ServiceNow (Vancouver / Washington / Xanadu)
+Interface: Service Portal, Service Catalog
+Automation: Flow Designer, Business Rules
+Frontend Logic: Catalog Client Scripts, UI Policies, Widget Client Controllers (spModal)
+Database & Security: Custom Tables, Data Policies, Access Control Lists (ACLs)
 
----
-
-## 🖼️ Project Visuals
-
-| Workflow Overview | Station Verification |
-| --- | --- |
-|  |  |
-
-*(Note: Ensure your image paths match your repository folder structure, e.g., `./Workflows/Workflow - 1.png`)*
-
----
-
-## ⚙️ Tech Stack
-
-* **Platform:** ServiceNow (Vancouver / Washington / Xanadu)
-* **Interface:** Service Portal, Service Catalog
-* **Automation:** Flow Designer, Business Rules
-* **Frontend Logic:** Catalog Client Scripts, UI Policies, Widget Client Controllers (`spModal`)
-* **Database & Security:** Custom Tables, Data Policies, Access Control Lists (ACLs)
-
----
-
-## 📁 Project Structure
-
-```text
+📁 Project Structure
+Plaintext
 Metro-Ticket-generation---Servicenow/
 ├── 1. Ideation Phase/                  # Problem statements, empathy maps & brainstorming
 ├── 2. Requirement Analysis/           # Data Flow Diagrams, User Stories, Tech Stack docs
@@ -98,57 +84,40 @@ Metro-Ticket-generation---Servicenow/
 ├── 6. Project Documentation/           # FSD documentation & final project report
 ├── 7. Project Demonstration/           # Demo notes & presentation files
 ├── Workflows/                          # Workflow diagrams & portal screenshots
+│   ├── Workflow - 1.png
+│   └── Workflow - 2.png
 └── README.md                           # Main documentation file
 
-```
+🛠️ Implementation & Configuration
+1. Catalog Item Setup
+Create a new Service Catalog Item named Metro Ticket Booking.
 
----
+Add variables: Source Station, Destination Station, Passenger Type, Number of Tickets, Calculated Fare.
 
-## 🛠️ Implementation & Configuration
+2. Client Scripts & UI Policies
+Add a Catalog Client Script on change of Destination Station or Number of Tickets to calculate total fare dynamically.
 
-### 1. Catalog Item Setup
+3. Flow Designer Workflow
+Trigger: Service Catalog request submission.
 
-* Create a new Service Catalog Item named **Metro Ticket Booking**.
-* Add variables: `Source Station`, `Destination Station`, `Passenger Type`, `Number of Tickets`, `Calculated Fare`.
+Actions: Create Catalog Task / Update record status → Set state to Approved → Generate Ticket Record.
 
-### 2. Client Scripts & UI Policies
+🔮 Future Scope
+[ ] Payment Gateway Integration (UPI, Credit/Debit Cards)
 
-* Add a **Catalog Client Script** on change of `Destination Station` or `Number of Tickets` to calculate total fare dynamically.
+[ ] WhatsApp & SMS Ticket Notification Delivery
 
-### 3. Flow Designer Workflow
+[ ] Automated Refund and Cancellation Workflow
 
-* Trigger: **Service Catalog** request submission.
-* Actions: Create Catalog Task / Update record status → Set state to **Approved** → Generate Ticket Record.
+[ ] Travel Analytics Dashboard for Metro Authorities
 
----
+[ ] Pass Management System (Daily / Monthly Passes)
 
-## 🐞 Troubleshooting & Challenges Solved
+👨‍💻 Author
+Veda Sarathi V
 
-* **Portal QR Rendering:** Solved cross-origin and rendering constraints in the Service Portal by embedding a custom Service Portal Widget using `spModal` for modal rendering.
-* **Fare Mismatch:** Fixed variable-to-field mapping delays between client-side scripts and server-side record creation using asynchronous GlideAjax calls.
-* **Flow Execution Errors:** Resolved state mismatch bugs by refining Flow Designer trigger criteria and stage transitions.
+ServiceNow Developer & System Designer
 
----
+GitHub: @VedasarathiV
 
-## 🔮 Future Scope
-
-* [ ] Payment Gateway Integration (UPI, Credit/Debit Cards)
-* [ ] WhatsApp & SMS Ticket Notification Delivery
-* [ ] Automated Refund and Cancellation Workflow
-* [ ] Travel Analytics Dashboard for Metro Authorities
-* [ ] Pass Management System (Daily / Monthly Passes)
-
----
-
-## 👨‍💻 Author
-
-**Veda Sarathi V**
-
-*ServiceNow Developer & System Designer*
-
-* **GitHub:** [@VedasarathiV](https://github.com/VedasarathiV)
-* **Repository:** [Metro-Ticket-generation---Servicenow](https://github.com/VedasarathiV/Metro-Ticket-generation---Servicenow)
-
-```
-
-```
+Repository: Metro-Ticket-generation---Servicenow
